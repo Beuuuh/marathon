@@ -1,24 +1,18 @@
 #include <stdio.h>
 
-int main() {
-    int Hi, Mi, Hf, Mf, Drh, Drm;
-    
-    scanf("%d", &Hi);
-    scanf("%d", &Mi);
-    scanf("%d", &Hf);
-    scanf("%d", &Mf);
+int main()
+{
+    int Hi, Mi, Hf, Mf, dif;
 
-    Hi = Hi * 60;
-    Hf = Hf * 60;
-    Drm = (Hf - Hi) + (Mf - Mi);
+    scanf("%d %d %d %d", &Hi, &Mi, &Hf, &Mf);
     
-    if(Drm > 60) {
-        Drh = Drm/60;
-        Drm = Drm % 60;
-    } 
+    dif = ((Hf*60)+Mf) - ((Hi*60)+Mi);
     
-    else {
-            Drh = 0;
-            printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)", Drh, Drm);
+    if(dif<=0) {
+        dif += 24 * 60;
     }
+    
+    printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", dif/60, dif%60);
+    
+    return 0;
 }
